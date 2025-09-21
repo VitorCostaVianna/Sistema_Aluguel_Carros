@@ -1,0 +1,72 @@
+### Exemplos de uso da API do Sistema de Aluguel de Carros
+
+### 1. Registrar um Cliente
+POST http://localhost:8080/api/auth/registro
+Content-Type: application/json
+
+{
+  "rg": "123456789",
+  "cpf": "12345678901",
+  "nome": "João Silva",
+  "endereco": "Rua das Flores, 123",
+  "profissao": "Engenheiro",
+  "email": "joao@email.com",
+  "senha": "123456"
+}
+
+### 2. Fazer Login
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "joao@email.com",
+  "senha": "123456"
+}
+
+### 3. Listar Clientes (requer autenticação)
+GET http://localhost:8080/api/clientes
+Authorization: Bearer SEU_TOKEN_JWT_AQUI
+
+### 4. Buscar Cliente por ID (requer autenticação)
+GET http://localhost:8080/api/clientes/1
+Authorization: Bearer SEU_TOKEN_JWT_AQUI
+
+### 5. Cadastrar Cliente (requer autenticação)
+POST http://localhost:8080/api/clientes
+Content-Type: application/json
+Authorization: Bearer SEU_TOKEN_JWT_AQUI
+
+{
+  "rg": "987654321",
+  "cpf": "98765432109",
+  "nome": "Maria Santos",
+  "endereco": "Avenida Central, 456",
+  "profissao": "Médica",
+  "email": "maria@email.com",
+  "senha": "654321"
+}
+
+### 6. Atualizar Cliente (requer autenticação)
+PUT http://localhost:8080/api/clientes/1
+Content-Type: application/json
+Authorization: Bearer SEU_TOKEN_JWT_AQUI
+
+{
+  "rg": "123456789",
+  "cpf": "12345678901",
+  "nome": "João Silva Santos",
+  "endereco": "Rua das Flores, 123 - Apto 45",
+  "profissao": "Engenheiro de Software",
+  "email": "joao@email.com",
+  "senha": "123456"
+}
+
+### 7. Deletar Cliente (requer autenticação)
+DELETE http://localhost:8080/api/clientes/1
+Authorization: Bearer SEU_TOKEN_JWT_AQUI
+
+### Notas:
+# - Substitua "SEU_TOKEN_JWT_AQUI" pelo token retornado no login
+# - O token JWT tem validade de 24 horas
+# - Todas as rotas de CRUD de cliente requerem autenticação
+# - As rotas de login e registro são públicas
