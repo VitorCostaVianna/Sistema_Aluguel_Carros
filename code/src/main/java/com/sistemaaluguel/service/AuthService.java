@@ -43,15 +43,7 @@ public class AuthService {
             
             Map<String, Object> response = new HashMap<>();
             response.put("token", token);
-            response.put("cliente", new ClienteResponseDTO(
-                cliente.getId(),
-                cliente.getRg(),
-                cliente.getCpf(),
-                cliente.getNome(),
-                cliente.getEndereco(),
-                cliente.getProfissao(),
-                cliente.getEmail()
-            ));
+            response.put("cliente", new ClienteResponseDTO(cliente));
             
             return response;
             

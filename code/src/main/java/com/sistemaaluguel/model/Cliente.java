@@ -56,6 +56,9 @@ public class Cliente implements UserDetails {
     
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Rendimentos> rendimentos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<PedidoAluguel> pedidos = new ArrayList<>();
     
     // Construtores
     public Cliente() {}
@@ -150,6 +153,8 @@ public class Cliente implements UserDetails {
     public void setRendimentos(List<Rendimentos> rendimentos) {
         this.rendimentos = rendimentos;
     }
+
+    
     
     // Implementação do UserDetails para Spring Security
     @Override
@@ -185,5 +190,13 @@ public class Cliente implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public List<PedidoAluguel> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<PedidoAluguel> pedidos) {
+        this.pedidos = pedidos;
     }
 }

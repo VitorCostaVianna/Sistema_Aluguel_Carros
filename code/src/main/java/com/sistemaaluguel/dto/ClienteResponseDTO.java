@@ -1,6 +1,6 @@
 package com.sistemaaluguel.dto;
 
-import java.util.List;
+import com.sistemaaluguel.model.Cliente;
 
 public class ClienteResponseDTO {
     
@@ -15,14 +15,14 @@ public class ClienteResponseDTO {
     // Construtor
     public ClienteResponseDTO() {}
     
-    public ClienteResponseDTO(Long id, String rg, String cpf, String nome, String endereco, String profissao, String email) {
-        this.id = id;
-        this.rg = rg;
-        this.cpf = cpf;
-        this.nome = nome;
-        this.endereco = endereco;
-        this.profissao = profissao;
-        this.email = email;
+    public ClienteResponseDTO(Cliente cliente) {
+        this.id = cliente.getId();
+        this.rg = cliente.getRg();
+        this.cpf = cliente.getCpf();
+        this.nome = cliente.getNome();
+        this.endereco = cliente.getEmail();
+        this.profissao = cliente.getProfissao();
+        this.email = cliente.getEmail();
     }
     
     // Getters e Setters

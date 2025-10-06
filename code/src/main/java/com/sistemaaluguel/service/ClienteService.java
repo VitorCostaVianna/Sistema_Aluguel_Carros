@@ -115,14 +115,6 @@ public class ClienteService implements UserDetailsService {
     }
     
     private ClienteResponseDTO convertToResponseDTO(Cliente cliente) {
-        return new ClienteResponseDTO(
-                cliente.getId(),
-                cliente.getRg(),
-                cliente.getCpf(),
-                cliente.getNome(),
-                cliente.getEndereco(),
-                cliente.getProfissao(),
-                cliente.getEmail()
-        );
+        return new ClienteResponseDTO(cliente);
     }
 }
